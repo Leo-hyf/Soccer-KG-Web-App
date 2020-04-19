@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="col-sm-8 float-sm-left">
+            {% for player in dataset %}
+                <div class="row border p-3 m-3 shadow rounded" style="background-color:whitesmoke">
+                    <div class="media">
+                        <a href="/player/{{ player.full_name }}">
+                            <img class="align-self-start mr-3" src="{{ player.picture }}" alt="Generic placeholder image">
+                        </a>
+                        <div class="media-body">
+                        <h5 class="mt-0">
+                            <a href="/player/{{ player.full_name }}">{{ player.full_name }}</a>
+                            <img src="{{ player.country_flag }}" alt="flag">
+                        </h5>
+                        <p class="text-secondary">{{ player.info }}</p>
+                      </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-sm-3 border m-3 p-3 shadow rounded float-sm-right" style="background-color: whitesmoke">
+            <form action="/player" role="form">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label justify-content-end">Age:</label>
+                    <div class="offset-sm-2 col-sm-8">
+                        <input type="text" class="form-control" placeholder="age">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label justify-content-end">Position:</label>
+                    <div class="offset-sm-2 col-sm-8">
+                        <input type="text" class="form-control" placeholder="position">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="offset-sm-4 col-sm-8">
+                        <button type="submit" class="btn btn-info">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block home %}
+    <li class="nav-item">
+        <a class="nav-link" href="/home">HOME</a>
+    </li>
+{% endblock %}
+
+{% block player  %}
+    <li class="nav-item">
+        <a class="nav-link active" href="/player">PLAYER</a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>
+             this is {{ full_name }}
+        </h1>
+    </div>
+{% endblock %}
